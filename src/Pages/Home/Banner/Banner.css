@@ -1,0 +1,7 @@
+/* reduce carosuel extra height */
+.carousel-item{
+    height: 550px!important;
+} 
+.carousel-item img{
+    height: 100%!important;
+}

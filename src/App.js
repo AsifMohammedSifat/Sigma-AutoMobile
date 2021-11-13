@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import AuthProvider from './Context/AuthProvider';
+import Home from './Pages/Home/Home/Home';
+import CarHub from './Pages/CarHub/CarHub';
+import CarDetails from './Pages/CarDetails/CarDetails';
+import Login from './Pages/Login/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AuthProvider>
+        <Router>
+        
+        <Switch>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+
+          {/* carhub  */}
+          <Route path="/carhub">
+            <CarHub></CarHub>
+          </Route>
+          {/* card details  */}
+          <Route path="/cardetails/:id">
+            <CarDetails></CarDetails>
+          </Route>
+          {/* login */}
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+         
+
+        </Switch>
+
+      </Router>
+     
+      </AuthProvider>
     </div>
   );
 }
