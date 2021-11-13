@@ -17,9 +17,9 @@ const CarDetails = () => {
 
     // for single details load 
     useEffect(()=>{
-        fetch(`http://localhost:3000/cardetails/${id}`)
+        fetch(`http://localhost:5000/carhub/${id}`)
         .then(res=>res.json())
-        .then(data=>console.log(data));
+        .then(data=>setCars(data));
     },[]);
 
 
@@ -31,33 +31,33 @@ const CarDetails = () => {
   // Handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const phone = phoneRef.current.value;
-    // const address = addressRef.current.value;
-    // fetch("https://aqueous-bayou-55272.herokuapp.com/orders", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     id: service._id,
-    //     userName: user.displayName,
-    //     userEmail: user.email,
-    //     destinationName: service.name,
-    //     price: service.price,
-    //     days: service.days,
-    //     nights: service.nights,
-    //     phone: phone,
-    //     address: address,
-    //     status: "PENDING",
-    //   })
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     //   console.log(data);
-    //       alert('successfully booked');
-    //     phoneRef.current.value = "";
-    //     addressRef.current.value = "";
-    //   });
+    const phone = phoneRef.current.value;
+    const address = addressRef.current.value;
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        id: cars._id,
+        userName: user.displayName,
+        userEmail: user.email,
+        brandName: cars.name,
+        price: cars.price,
+        days: cars.days,
+        nights: cars.nights,
+        phone: phone,
+        address: address,
+        status: "PENDING",
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //   console.log(data);
+          alert('successfully booked');
+        phoneRef.current.value = "";
+        addressRef.current.value = "";
+      });
   };
     return (
         <>
@@ -69,9 +69,9 @@ const CarDetails = () => {
                             <form className="sticky-top" onSubmit={handleSubmit}>
 
                               <span className="text-dark text-center fw-bold">Order Id</span>
-                                <input placeholder="order_id" value={cars.id}  className="rounded-3 border-dark  p-2" disabled/>
+                                <input placeholder="order_id" value={cars._id}  className="rounded-3 border-dark  p-2" disabled/>
                                 
-                                <span className="text-dark text-center fw-bold">Destination Name</span>
+                                <span className="text-dark text-center fw-bold">Car Name</span>
                                  <input  placeholder="Service Name" value={cars.name}  className="rounded-3 border-dark  p-2" disabled/>
                                 
                                  <span className="text-dark text-center fw-bold">Your Name</span>

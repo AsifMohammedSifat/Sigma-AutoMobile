@@ -53,7 +53,7 @@ const Login = () => {
            login? '':<div className="mb-3">
 
               <label htmlFor="inputname" className="form-label  text-warning fs-5 fw-bold">Username</label>
-              <input onBlur={handleNameChange} type="text" className="form-control" name="inputname" required/>
+              <input onBlur={handleNameChange} type="text" className="form-control" name="displayName" required/>
             </div>}
 
 
@@ -79,7 +79,7 @@ const Login = () => {
             
       </form>
       <form className="mx-auto text-center" onSubmit={handleGoogleSignIN}>
-            <button type="submit" className="bg-dark mx-auto mt-2 w-50 p-2 rounded-3 fs-6 me-2 border-0 text-warning fw-bold"> {login? 'Login':'Register'} in with Google</button>
+            <button type="submit" className="bg-dark mx-auto mt-2 w-50 p-2 rounded-3 fs-6 me-2 border-0 text-warning fw-bold"> Register &  Login in with Google</button>
     </form>
 
     </div>

@@ -13,8 +13,8 @@ import {
     useEffect,
     useState
 } from "react";
-
-import initializeAuthentication from "../Firebase/firebase.init";
+import { useHistory, useLocation } from "react-router";
+import initializeAuthentication from '../Firebase/firebase.init';
 
 initializeAuthentication();
 
@@ -28,10 +28,11 @@ const useFirebase = () => {
     //log in state
     const [login, setLogin] = useState(false);
 
+    // const history=useHistory();
+    // const location=useLocation();
 
 
     const auth = new getAuth();
-    // google provider 
     const googleProvider = new GoogleAuthProvider();
 
     // google sign in 
@@ -41,9 +42,13 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                
+                // ...
             }).catch((error) => {
                 // Handle Errors here.
                 setError(error.message);
+
+                // ...
             });
     }
     
@@ -72,6 +77,7 @@ const useFirebase = () => {
                 setError(' ');
                 // Signed in 
                 const user = userCredential.user;
+                console.log("processing...", user);
                 setEmail('');
                 setPassword('');
                 setError('');
@@ -86,12 +92,16 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
-
-                console.log(user);
+                
+                // setUser(user);
+                console.log("usefirbase",user);
                 setError(' ');
                 verifyEmail();
-                setUserName();
-                window.alert('Registration Complete.Now You Can LogIn!!')
+                setUserName(user.displayName);
+                saveUser(email,user.displayName);
+                window.alert('Registration Complete.Now You Can LogIn!!');
+             
+            
             })
             .catch(error => {
                 setError(error.message);
@@ -99,7 +109,7 @@ const useFirebase = () => {
     }
 
     // update profile 
-    const setUserName = () => {
+    const setUserName = (name) => {
         updateProfile(auth.currentUser, {
                 displayName: name
 
@@ -148,6 +158,20 @@ const useFirebase = () => {
             .then(() => {
                 setUser({});
             })
+    }
+
+    // save user to data base 
+    const saveUser=(email,displayName)=>{
+        const user={email,displayName};
+        fetch('http://localhost:5000/users',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(user)
+        })
+        .then()
+
     }
 
     //  state change tracker 

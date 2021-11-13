@@ -1,0 +1,12 @@
+import React from 'react';
+
+const MakeAdmin = () => {
+    return (
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere officia a dolorum non pariatur exercitationem illo doloremque dolore, vel sequi itaque neque placeat minima, est adipisci sed cupiditate qui aliquid consequatur! Ipsum nulla sunt debitis sapiente at, autem consequatur? Tempora aut fugit maiores omnis soluta alias doloremque sint cum esse velit maxime mollitia iusto natus, repellendus, nesciunt pariatur sit quos ratione repellat, quisquam excepturi minima! Magni, quisquam facilis. Quia quidem impedit dolore, modi, numquam assumenda nemo aspernatur, excepturi eum aliquam et corrupti illo voluptatem necessitatibus placeat praesentium alias inventore vitae iusto repudiandae in tempore expedita blanditiis. Dolores facilis rem magni consequuntur quam? Molestias cum quis blanditiis magni debitis doloremque commodi unde reiciendis, suscipit fuga earum vitae, reprehenderit repudiandae rem obcaecati explicabo non voluptas excepturi aliquid quos est minus, dolorem veniam! Voluptatibus recusandae, harum illum itaque veniam illo tenetur, id, esse odit aperiam veritatis commodi laudantium. Inventore ipsum, eum asperiores deserunt praesentium ratione laboriosam quaerat officiis delectus nulla facere mollitia expedita impedit necessitatibus. Ea laboriosam dignissimos, ex temporibus doloribus a debitis consectetur hic officiis, libero molestiae quod quisquam expedita praesentium tempore minus illum quae alias suscipit eaque perspiciatis. Et obcaecati praesentium nobis eum ipsum ad, accusantium tenetur esse autem explicabo repellendus rem iste saepe sed, ipsa totam fugiat non alias. Quibusdam dolores explicabo numquam. Soluta autem nihil fugit vero sit deleniti aut, consequuntur hic, dolorem quae quas iure tempore, neque consequatur veniam placeat. Ipsa fugit deserunt, nisi, iste quidem fugiat ad laboriosam numquam animi saepe voluptatem maiores. Porro facere ex quas, molestiae dolor provident fugit? Veritatis laudantium esse a soluta reprehenderit error reiciendis magnam fugit. Atque placeat molestias cumque accusantium odio, adipisci, dolorum qui soluta amet repudiandae laborum nam voluptates, dolores fuga repellendus omnis facilis vitae. Repellat commodi eaque a! Sequi repellendus consequuntur omnis quam perferendis est fugiat cupiditate qui quos.
+            
+        </div>
+    );
+};
+
+export default MakeAdmin;

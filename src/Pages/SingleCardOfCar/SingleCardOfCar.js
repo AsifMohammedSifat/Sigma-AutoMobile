@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const SingleCardOfCar = (props) => {
     // const {_id,price,days,nights,name,description,img}=props.car;
-    const {id,name,img,description,price}=props.car;
+    const {_id,name,img,description,price}=props.car;
     
    
     return (
@@ -25,7 +25,7 @@ const SingleCardOfCar = (props) => {
 
                 {/* details button of card  */}
                 <div className="card-footer">
-                    <Link to={`/cardetails/${id}`} >
+                    <Link to={`/cardetails/${_id}`} >
                         <button className="btn btn-warning text-white fw-bold">  Buy Now
                         </button>
                     </Link>

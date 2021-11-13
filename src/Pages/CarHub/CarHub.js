@@ -6,7 +6,7 @@ const CarHub = () => {
     const [cars,setCars]=useState([{name:"",price:"",description:"",img:""}]);
 
     useEffect(()=>{
-        fetch('./carhub.json')
+        fetch('http://localhost:5000/carhub')
         .then(res=>res.json())
         .then(data=>setCars(data));
     },[])
@@ -19,7 +19,7 @@ const CarHub = () => {
                        
                         
                         cars.map(car => <SingleCardOfCar 
-                        key={car.id}                      
+                        key={car._id}                      
                         car={car}
                         ></SingleCardOfCar>)
                     }

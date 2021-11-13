@@ -1,0 +1,16 @@
+.aboutus-banner{
+    background: url('https://www.bing.com/th/id/OGC.e2b9a697111a1ae388fdc3a80a8a555e?pid=1.7&rurl=http%3a%2f%2fwww.9to5carwallpapers.com%2fwp-content%2fuploads%2f2014%2f01%2fWhite-Lamborghini-Gif.gif&ehk=%2bB%2fFSvo%2fEAwWlHUlE%2f%2fIWlk9fg%2f3KEU410awHTvded0%3d');
+    width: 100%;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    align-items:center;
+    justify-content: center;
+}
+.choose-us-text{
+    align-items: center;
+    justify-content: center;
+    
+}

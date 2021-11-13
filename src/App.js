@@ -5,6 +5,10 @@ import Home from './Pages/Home/Home/Home';
 import CarHub from './Pages/CarHub/CarHub';
 import CarDetails from './Pages/CarDetails/CarDetails';
 import Login from './Pages/Login/Login';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import NotFound from './Pages/NotFound/NotFound';
+
 
 function App() {
   return (
@@ -25,13 +29,24 @@ function App() {
             <CarHub></CarHub>
           </Route>
           {/* card details  */}
-          <Route path="/cardetails/:id">
+          <PrivateRoute  path="/cardetails/:id">
             <CarDetails></CarDetails>
-          </Route>
+          </PrivateRoute>
           {/* login */}
           <Route path="/login">
             <Login></Login>
           </Route>
+
+          {/* dashboard  */}
+          <Route path="/dashboard">
+            <Dashboard></Dashboard>
+          </Route>
+          
+          {/* notfound  */}
+          <Route  path="/*">
+            <NotFound></NotFound>
+          </Route>
+
          
 
         </Switch>

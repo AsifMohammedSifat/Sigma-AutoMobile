@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 const Navigation = () => {
 
     const {user,logout}=useAuth();
+    console.log(user);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -29,18 +30,12 @@ const Navigation = () => {
                                     <li className="nav-item mx-auto">
                                     <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" >CarHub</Link>
                                     </li>
-                                     {/* about us  */}
+                                     {/* dashboard */}
                                     <li className="nav-item mx-auto">
-                                    <Link to="/aboutus" className="nav-item-text mx-auto fs-5" aria-current="page" >About Us</Link>
+                                    <Link to="/dashboard" className="nav-item-text mx-auto fs-5" aria-current="page" >Dashboard</Link>
                                     </li>
 
-                                   {user.email && 
-
-                                //    my booking 
-                                            <li className="nav-item mx-auto">
-                                        <Link to="/mybooking" className="nav-item-text mx-auto fs-5" aria-current="page" > Dashboard</Link>
-                                        </li>
-                                    }
+                                 
                                 </ul>
                                 
                                 <ul className="navbar-nav ms-auto">
