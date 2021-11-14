@@ -21,7 +21,7 @@ const ManageCar = () => {
       });
   }, []);
   return (
-    <div className="my-bookings-container container pb-5 my-5">
+    <div className="my-bookings-container container pb-5 mb-5">
       {loading ? (
         <div className="spinner d-flex align-items-center justify-content-center">
           <button className="btn btn-primary" type="button" disabled>
@@ -35,7 +35,7 @@ const ManageCar = () => {
         </div>
       ) : (
         <>
-          <h1 className="booking-header">Admin Manage cars Panel</h1>
+          <h1 className="booking-header brand-name text-dark">Admin Manage cars Panel</h1>
           <hr />
           <div className="table-responsive">
             <table className="table my-5">

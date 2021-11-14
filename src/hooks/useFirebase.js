@@ -25,15 +25,32 @@ const useFirebase = () => {
     const [error, setError] = useState("");
     const [user, setUser] = useState({});
     const [name, setName] = useState("");
+    const [isLoading,setIsLoading]=useState(true);
     //log in state
     const [login, setLogin] = useState(false);
 
-    // const history=useHistory();
-    // const location=useLocation();
+    
+    const [admin, setAdmin] = useState(false);
 
+    const history=useHistory();
+    
 
     const auth = new getAuth();
     const googleProvider = new GoogleAuthProvider();
+
+    //  state change tracker 
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            setIsLoading(true);
+            if (user) {
+                setUser(user);
+            }
+            else{
+                setUser({});
+            }
+            setIsLoading(false);
+        });
+    }, [])
 
     // google sign in 
     const handleGoogleSignIN = e => {
@@ -43,12 +60,12 @@ const useFirebase = () => {
                 const user = result.user;
                 setUser(user);
                 
-                // ...
+                saveUser(user.email,user.displayName,'PUT');
+                
             }).catch((error) => {
                 // Handle Errors here.
                 setError(error.message);
 
-                // ...
             });
     }
     
@@ -62,47 +79,53 @@ const useFirebase = () => {
             setError('Opps!password must be at least 6 character long...');
             return;
         }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('password must contain 2 uppercase');
-        }
+        // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+        //     setError('password must contain 2 uppercase');
+        //     return;
+        // }
 
         //log in or register operation
-        login ? (processLogin(email, password)) : createNewUser(email, password);
+        login ? (processLogin(email,password)) : createNewUser(name,email, password);
 
 
     }
+
+
+    // login function with email and password
     const processLogin = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setError(' ');
                 // Signed in 
                 const user = userCredential.user;
-                console.log("processing...", user);
+                setUser(user);
+
                 setEmail('');
                 setPassword('');
                 setError('');
                 window.alert('Hurrah!Log in successfull..');
-                // ...
             })
             .catch((error) => {
                 setError(error.message);
             });
     }
-    const createNewUser = (email, password) => {
+    const createNewUser = (name,email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
+
+                setError('');
+
+                const newUser = { email, displayName: name };
+                setUser(newUser);
                 
-                // setUser(user);
-                console.log("usefirbase",user);
-                setError(' ');
                 verifyEmail();
-                setUserName(user.displayName);
-                saveUser(email,user.displayName);
+                setUserName(name);
+                saveUser(email,name,'POST');
                 window.alert('Registration Complete.Now You Can LogIn!!');
-             
-            
+                
             })
+           
             .catch(error => {
                 setError(error.message);
             })
@@ -146,11 +169,9 @@ const useFirebase = () => {
     const handlePasswordChange = e => {
         setPassword(e.target.value);
     }
-    //handle clear all fiels when toogle
+    //handle clear all error message when toogle
     const handleToggleChange = () => {
-
         setError('');
-
     }
     //logout 
     const logout = () => {
@@ -160,11 +181,18 @@ const useFirebase = () => {
             })
     }
 
+    // filtering admin 
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     // save user to data base 
-    const saveUser=(email,displayName)=>{
+    const saveUser=(email,displayName,method)=>{
         const user={email,displayName};
         fetch('http://localhost:5000/users',{
-            method:'POST',
+            method:method,
             headers:{
                 'content-type':'application/json'
             },
@@ -174,23 +202,13 @@ const useFirebase = () => {
 
     }
 
-    //  state change tracker 
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                // ...
-            }
-        });
-    }, [])
+    
 
 
 
     return {
         user,
-        name,
-        email,
-        password,
+        admin,
         error,
         login,
         signInWithEmailAndPassword,
@@ -203,6 +221,7 @@ const useFirebase = () => {
         createNewUser,
         verifyEmail,
         toggleLogIn,
+        isLoading,
         logout
 
     };

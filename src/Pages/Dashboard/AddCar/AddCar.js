@@ -20,7 +20,9 @@ const AddCar = () => {
   }
     return (
         <div className="add-service my-5">
-            <div className="row d-sm-flex container mx-auto">
+            <h1 className="brand-name text-center my-1 text-dark ">Add Car TO CarHub</h1>
+            <hr className="w-50 mx-auto"/>
+            <div className="row d-sm-flex container g-2 mx-auto">
                         <div className="col col-12 col-lg-7 order-sm-2 text-center choose-us-text"> 
                             <div className="card details-card card-style h-100">
                             <form onSubmit={handleSubmit(onSubmit)}>
@@ -29,8 +31,8 @@ const AddCar = () => {
                                 <textarea {...register("description",{required:true})} placeholder="Description..." className="rounded-3 border-0 border-outline-warning p-2"/>
                                 <input type="number" {...register("price",{required:true})}  placeholder="Price" className="rounded-3 border-0 border-outline-warning p-2"/>
                                
-                                <input {...register("img",{required:true})} placeholder="Image" className="rounded-3 border-0 border-outline-warning p-2"/>
-                                <input className="bg-warning border-0 fw-bold p-2 rounded-3 text-dark" type="submit" value="Book Now" />
+                                <input {...register("img",{required:true})} placeholder="ImageUrl of Car" className="rounded-3 border-0 border-outline-warning p-2"/>
+                                <input className="bg-warning border-0 fw-bold p-2 rounded-3 text-dark" type="submit" value="Add Car" />
                                 </form>
                             </div>
                               

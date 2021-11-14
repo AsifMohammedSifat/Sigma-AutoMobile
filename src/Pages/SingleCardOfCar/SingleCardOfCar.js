@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SingleCardOfCar.css';
 import {Link} from 'react-router-dom';
 
 const SingleCardOfCar = (props) => {
     // const {_id,price,days,nights,name,description,img}=props.car;
     const {_id,name,img,description,price}=props.car;
+    const [loading,setLoading]=useState(true);
+
     
    
     return (
        <div>
-           
+           {!loading?(
+               <div className="spinner mt-5 d-flex align-items-center justify-content-center">
+               <button className="btn btn-primary" type="button" disabled>
+                 <span
+                   className="spinner-border spinner-border-sm"
+                   role="status"
+                   aria-hidden="true"
+                 ></span>
+                 <span className="ms-2">Loading...</span>
+               </button>
+             </div>
+            ):(
+                <>
             {/* data pass by card  */}
             <div className="card details-card card-style h-100">
                 {/* card img  */}
@@ -31,6 +45,7 @@ const SingleCardOfCar = (props) => {
                     </Link>
                 </div>
             </div>
+            </>)}
         </div>
     );
 };

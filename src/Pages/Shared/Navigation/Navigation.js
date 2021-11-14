@@ -5,7 +5,6 @@ import useAuth from '../../../hooks/useAuth';
 const Navigation = () => {
 
     const {user,logout}=useAuth();
-    console.log(user);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -31,9 +30,9 @@ const Navigation = () => {
                                     <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" >CarHub</Link>
                                     </li>
                                      {/* dashboard */}
-                                    <li className="nav-item mx-auto">
+                                    {user?.email && <li className="nav-item mx-auto">
                                     <Link to="/dashboard" className="nav-item-text mx-auto fs-5" aria-current="page" >Dashboard</Link>
-                                    </li>
+                                    </li>}
 
                                  
                                 </ul>
@@ -45,7 +44,7 @@ const Navigation = () => {
                                          {!user.email? '':
                                             <div style={{fontSize:'10px'}} className="mx-auto me-2"> <button className="rounded-3  bg-warning border-0 p-2 text-dark fw-bold">
                                         {/* <img  className="" src={user.photoURL} alt="" /> */}
-                                        <small>Name:{user.displayName}</small>
+                                        <small>Name:{user?.displayName}</small>
                                         </button>
                                         </div> }
                                     </li>

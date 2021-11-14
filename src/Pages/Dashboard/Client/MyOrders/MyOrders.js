@@ -37,7 +37,7 @@ const MyOrders= () => {
         </div>
       ) : (
         <>
-          <h1 className="booking-header">My Order</h1>
+          <h1 className="booking-header brand-name text-dark">My Order</h1>
           <hr />
           <div className="table-responsive">
             <table className="table">

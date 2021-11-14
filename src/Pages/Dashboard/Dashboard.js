@@ -8,9 +8,11 @@ import MyOrders from './Client/MyOrders/MyOrders';
 import GiveReview from './Client/GiveReview/GiveReview';
 import Payment from './Client/Payment/Payment';
 import AddCar from './AddCar/AddCar';
+import useAuth from '../../hooks/useAuth';
 
 const Dashboard = () => {
     let {path,url}=useRouteMatch();
+    const {admin,user,logout}=useAuth();
     return (
         <div>
               <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -20,9 +22,9 @@ const Dashboard = () => {
                         <Link to="/home"  className="btn bg-warning text-dark fw-bold" type="button">Home</Link>
 
                         {/* toogler button for small screen  */}
-                        <button className="navbar-expand navbar-toogler border-0 rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="true" aria-label="Toggle navigation">  <Link className="btn bg-warning text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                            Dashboard
-                        </Link>
+                        <button className="navbar-expand navbar-toogler border-0 rounded-3" type="button">  
+                        {user?.email && <Link  to="" className="fs-6 fw-bold nav-item-text bg-danger p-2 rounded-3" onClick={logout}>LogOut </Link>
+                                     }
                         </button>
                       
 
@@ -44,7 +46,7 @@ const Dashboard = () => {
   <div className="offcanvas-body">
 
       {/* normal user  */}
-      <ul className="dashboard-ul">                     
+    {!admin &&  <ul className="dashboard-ul">                     
           <li>   <Link to={`${url}/payment`}  className="btn bg-warning text-dark fw-bold" type="button">Payment</Link>
           </li>
 
@@ -63,13 +65,13 @@ const Dashboard = () => {
             <hr />
                        
                        
-  </ul>
+  </ul>}
 
 
                         {/* ==============admin=============== */}
 
                         
-      <ul className="dashboard-ul">                     
+      {admin && <ul className="dashboard-ul">                     
           <li>                
           <Link to={`${url}/manageallorders`}  className="btn bg-warning text-dark fw-bold" type="button">Manage All Orders</Link>
           </li>
@@ -94,7 +96,7 @@ const Dashboard = () => {
             </li>
                        
                        
-  </ul>
+  </ul>}
   </div>
 </div>
      </nav>
@@ -105,7 +107,8 @@ const Dashboard = () => {
           {/* default dashboard button  */}
                {/* toogler button for small screen  */}
               <div className="mx-auto text-center ">
-              <button className="ms-auto p-5 w-50 text-center navbar-expand navbar-toogler border-0 rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="true" aria-label="Toggle navigation">  <Link className="p-3 fs-5 fw-bold w-50 btn mx-auto bg-warning text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+              <button className="ms-auto p-5 w-50 text-center navbar-expand navbar-toogler border-0 rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="true" aria-label="Toggle navigation"> 
+               <Link className="p-2 fs-6 fw-bold w-50 container btn mx-auto bg-warning text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                             Dashboard
                         </Link>
                         </button>
