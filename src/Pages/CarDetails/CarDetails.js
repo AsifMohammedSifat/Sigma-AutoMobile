@@ -15,11 +15,18 @@ const CarDetails = () => {
     const phoneRef = useRef(null);
     const addressRef = useRef(null);
 
+    
+    const [loading,setLoading]=useState(true);
+
+
     // for single details load 
     useEffect(()=>{
-        fetch(`http://localhost:5000/carhub/${id}`)
+        fetch(`https://floating-tor-66173.herokuapp.com/carhub/${id}`)
         .then(res=>res.json())
-        .then(data=>setCars(data));
+        .then(data=>{
+          setCars(data)
+          setLoading(false)
+        });
     },[]);
 
 
@@ -33,7 +40,7 @@ const CarDetails = () => {
     e.preventDefault();
     const phone = phoneRef.current.value;
     const address = addressRef.current.value;
-    fetch("http://localhost:5000/order", {
+    fetch("https://floating-tor-66173.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -62,6 +69,18 @@ const CarDetails = () => {
     return (
         <>
         <Navigation></Navigation>
+        {loading?(
+               <div className="spinner mt-5 pt-5 d-flex align-items-center justify-content-center">
+               <button className="btn btn-primary" type="button" disabled>
+                 <span
+                   className="spinner-border spinner-border-sm"
+                   role="status"
+                   aria-hidden="true"
+                 ></span>
+                 <span className="ms-2">Loading...</span>
+               </button>
+             </div>
+            ):( <> 
         <div className="row container mx-auto my-5 gy-5">
 
             <div className="col col-12 col-lg-5 order-sm-2 text-center choose-us-text"> 
@@ -111,8 +130,9 @@ const CarDetails = () => {
 
             </div>
         </div>
+        
                             
-    </div>
+    </div></>)}
 </>
     );
 };

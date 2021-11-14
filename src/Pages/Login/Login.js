@@ -38,12 +38,11 @@ const Login = () => {
   }, [user]);
    return (
     
-    <div className="bg-image fixed-top">
+    <div>
 
-      <Navigation></Navigation>
       {isLoading ? (
-        <div className="spinner d-flex align-items-center justify-content-center">
-          <button className="btn btn-primary" type="button" disabled>
+        <div className="spinner mt-5 pt-5 d-flex align-items-center justify-content-center">
+          <button className="btn btn-primary " type="button" disabled>
             <span
               className="spinner-border spinner-border-sm"
               role="status"
@@ -53,7 +52,9 @@ const Login = () => {
           </button>
         </div>
       ) :(
-        <>
+        
+        <div className="bg-image fixed-top">
+          <Navigation></Navigation>
 
         {/* log in or register header  */}
       <h1 className="text-warning  pt-5  mt-5 fw-bold text-center  rounded-3">Please {login? 'Login':'Register'}</h1>
@@ -96,7 +97,7 @@ const Login = () => {
       <form className="mx-auto text-center" onSubmit={handleGoogleSignIN}>
             <button type="submit" className="bg-dark mx-auto mt-2 w-50 p-2 rounded-3 fs-6 me-2 border-0 text-warning fw-bold"> Register &  Login in with Google</button>
     </form>
-  </>
+  </div>
       )}
     
     </div>

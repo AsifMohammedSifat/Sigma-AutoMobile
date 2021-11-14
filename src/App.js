@@ -38,9 +38,9 @@ function App() {
           </Route>
 
           {/* dashboard  */}
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
-          </Route>
+          </PrivateRoute>
           
           {/* notfound  */}
           <Route  path="/*">

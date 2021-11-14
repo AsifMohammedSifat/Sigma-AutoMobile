@@ -8,7 +8,7 @@ const GiveReview = () => {
   const onSubmit = data =>{
       
    
-      axios.post('http://localhost:5000/review',data)
+      axios.post('https://floating-tor-66173.herokuapp.com/review',data)
     .then(res=>{
         // console.log(res);
         if(res.data.insertedId){

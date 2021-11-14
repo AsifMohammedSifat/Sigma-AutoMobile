@@ -17,7 +17,7 @@ const ReviewCard = (props) => {
                     {/* name  */}
                     <h6 className="card-title"><span className="card-value fs-6">{name}</span></h6>   
                     {/* price */}
-                    <h6 className="card-title">Rating:<span className="card-value">{rating} <i class="fas fa-star"></i>Star</span></h6> 
+                    <h6 className="card-title">Rating:<span className="card-value">{rating} <i className="fas fa-star"></i>Star</span></h6> 
                     <p className="card-title fw-bold">Comment:<span className="fw-normal fs-6" >{description}</span></p>   
                 
                 </div>

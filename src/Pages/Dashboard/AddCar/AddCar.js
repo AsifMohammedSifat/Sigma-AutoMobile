@@ -8,7 +8,7 @@ const AddCar = () => {
   const onSubmit = data =>{
       
    
-      axios.post('http://localhost:5000/addcar',data)
+      axios.post('https://floating-tor-66173.herokuapp.com/addcar',data)
     .then(res=>{
         console.log(res);
         if(res.data.insertedId){

@@ -5,7 +5,7 @@ const CarHub = () => {
     const [cars,setCars]=useState([{name:"",description:"",img:"",raitng:""}]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/review')
+        fetch('https://floating-tor-66173.herokuapp.com/review')
         .then(res=>res.json())
         .then(data=>setCars(data));
     },[])

@@ -12,7 +12,7 @@ const ManageCarRow = (props) => {
   const handleDelete = () => {
     const x = window.confirm("Do you want to cancel your booking?");
     if (x) {
-      fetch("http://localhost:5000/managecar", {
+      fetch("https://floating-tor-66173.herokuapp.com/managecar", {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -28,7 +28,7 @@ const ManageCarRow = (props) => {
   const handleStatus = (status) => {
     const x = window.confirm("Do you want to change the status?");
     if (x) {
-      fetch("http://localhost:5000/managecar", {
+      fetch("https://floating-tor-66173.herokuapp.com/managecar", {
         method: "PUT",
         headers: {
           "content-type": "application/json",

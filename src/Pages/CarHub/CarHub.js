@@ -7,7 +7,7 @@ const CarHub = () => {
     const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/carhub')
+        fetch('https://floating-tor-66173.herokuapp.com/carhub')
         .then(res=>res.json())
         .then(data=>{
             setCars(data)

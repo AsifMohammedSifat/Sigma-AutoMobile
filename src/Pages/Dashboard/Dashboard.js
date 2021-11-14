@@ -37,7 +37,7 @@ const Dashboard = () => {
 
 <div className="offcanvas offcanvas-start " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div className="offcanvas-header">
-    <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Dashboard</h5>
+    <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel"><i className="fas fa-th-list"></i> Dashboard</h5>
     <hr />
 
     {/* close button */}
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
             <li>
                 
-            <Link to={`${url}/review`}  className="btn bg-warning text-dark fw-bold" type="button">LogOut</Link>
+            <Link  to=""  className="btn bg-warning text-dark fw-bold" type="button" onClick={logout}>LogOut </Link>
             </li>
             <hr />
                        
@@ -91,9 +91,9 @@ const Dashboard = () => {
             <Link to={`${url}/managecar`}  className="btn bg-warning text-dark fw-bold" type="button">Manage All Car Product</Link>
             </li>
 
-            <li>                
-                        <Link to={`${url}/logout`}  className="btn bg-warning text-dark fw-bold" type="button">LogOut</Link>
+            <li>                <Link  to=""  className="btn bg-warning text-dark fw-bold" type="button" onClick={logout}>LogOut </Link>
             </li>
+            
                        
                        
   </ul>}

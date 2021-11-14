@@ -13,7 +13,7 @@ const ManageCar = () => {
   useEffect(() => {
     document.title = "Admin Panel |Manage All Orders";
     window.scrollTo(0, 0);
-    fetch("http://localhost:5000/carhub")
+    fetch("https://floating-tor-66173.herokuapp.com/carhub")
       .then((res) => res.json())
       .then((data) => {
         setOrderData(data);

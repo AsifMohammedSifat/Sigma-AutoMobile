@@ -22,12 +22,12 @@ const Navigation = () => {
                                 <ul className="navbar-nav nav-menus">
                                     {/* home  */}
                                     <li className="nav-item mx-auto">
-                                    <Link to="/home" className="nav-item-text mx-auto fs-5" aria-current="page" > Home</Link>
+                                    <Link to="/home" className="nav-item-text mx-auto fs-5" aria-current="page" ><i class="fas fa-home"></i> Home</Link>
                                     </li> 
                                     
                                      {/* CarHub  */}
                                     <li className="nav-item mx-auto">
-                                    <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" >CarHub</Link>
+                                    <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" ><i class="fas fa-car"></i> CarHub</Link>
                                     </li>
                                      {/* dashboard */}
                                     {user?.email && <li className="nav-item mx-auto">

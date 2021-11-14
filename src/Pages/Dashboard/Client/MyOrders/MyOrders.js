@@ -11,7 +11,7 @@ const MyOrders= () => {
   useEffect(() => {
     document.title = "My Orders";
     window.scrollTo(0, 0);
-    fetch(`http://localhost:5000/allOrder/${user.email}`)
+    fetch(`https://floating-tor-66173.herokuapp.com/allOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrderData(data);

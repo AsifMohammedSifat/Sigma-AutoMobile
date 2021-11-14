@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
   useEffect(() => {
     document.title = "Admin Panel | All Orders";
     window.scrollTo(0, 0);
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://floating-tor-66173.herokuapp.com/allOrders")
       .then((res) => res.json())
       .then((data) => {
         setOrderData(data);
