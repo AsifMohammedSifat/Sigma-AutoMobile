@@ -22,12 +22,12 @@ const Navigation = () => {
                                 <ul className="navbar-nav nav-menus">
                                     {/* home  */}
                                     <li className="nav-item mx-auto">
-                                    <Link to="/home" className="nav-item-text mx-auto fs-5" aria-current="page" ><i class="fas fa-home"></i> Home</Link>
+                                    <Link to="/home" className="nav-item-text mx-auto fs-5" aria-current="page" ><i className="fas fa-home"></i> Home</Link>
                                     </li> 
                                     
                                      {/* CarHub  */}
                                     <li className="nav-item mx-auto">
-                                    <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" ><i class="fas fa-car"></i> CarHub</Link>
+                                    <Link to="/carhub" className="nav-item-text mx-auto fs-5" aria-current="page" ><i className="fas fa-car"></i> CarHub</Link>
                                     </li>
                                      {/* dashboard */}
                                     {user?.email && <li className="nav-item mx-auto">
@@ -51,7 +51,7 @@ const Navigation = () => {
 
                                     {/* dynamics logout or login button */}
                                     <li className="nav-item my-3 mx-auto">
-                                      {!user.email ? <Link  className="fs-6  fw-bold nav-item-text p-2 rounded-3 bg-warning " to="/login">Login</Link>
+                                      {!user.email ? <Link   className="fs-6  fw-bold nav-item-text p-2 rounded-3 bg-warning " to="/login">Login</Link>
                                         :<Link  to="" className="fs-6 fw-bold nav-item-text bg-danger p-2 rounded-3" onClick={logout}>LogOut </Link>
                                      }
                                     </li>

@@ -35,7 +35,7 @@ const Dashboard = () => {
 
 
 
-<div className="offcanvas offcanvas-start " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div className="offcanvas offcanvas-start " data-bs-scroll="true"  id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div className="offcanvas-header">
     <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel"><i className="fas fa-th-list"></i> Dashboard</h5>
     <hr />
@@ -46,7 +46,7 @@ const Dashboard = () => {
   <div className="offcanvas-body">
 
       {/* normal user  */}
-    {!admin &&  <ul className="dashboard-ul">                     
+    {!admin? (  <ul className="dashboard-ul">                     
           <li>   <Link to={`${url}/payment`}  className="btn bg-warning text-dark fw-bold" type="button">Payment</Link>
           </li>
 
@@ -65,13 +65,7 @@ const Dashboard = () => {
             <hr />
                        
                        
-  </ul>}
-
-
-                        {/* ==============admin=============== */}
-
-                        
-      {admin && <ul className="dashboard-ul">                     
+  </ul>):(<ul className="dashboard-ul">                     
           <li>                
           <Link to={`${url}/manageallorders`}  className="btn bg-warning text-dark fw-bold" type="button">Manage All Orders</Link>
           </li>
@@ -96,7 +90,7 @@ const Dashboard = () => {
             
                        
                        
-  </ul>}
+  </ul>)}
   </div>
 </div>
      </nav>
@@ -108,7 +102,7 @@ const Dashboard = () => {
                {/* toogler button for small screen  */}
               <div className="mx-auto text-center ">
               <button className="ms-auto p-5 w-50 text-center navbar-expand navbar-toogler border-0 rounded-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="true" aria-label="Toggle navigation"> 
-               <Link className="p-2 fs-6 fw-bold w-50 container btn mx-auto bg-warning text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+               <Link to="" className="p-2 fs-7 fw-bold w-100 container btn mx-auto bg-warning text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                             Dashboard
                         </Link>
                         </button>

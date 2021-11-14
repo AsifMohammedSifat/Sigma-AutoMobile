@@ -7,6 +7,7 @@ const MakeAdmin = () => {
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
+    
     const handleAdminSubmit = e => {
         const user = { email };
         fetch('https://floating-tor-66173.herokuapp.com/user/admin', {
@@ -19,12 +20,9 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    // console.log(data);
+                    console.log(data);
                     
                     alert('Inserted Successfully');
-                }
-                else{
-                    alert('Already Added');
                 }
             })
 

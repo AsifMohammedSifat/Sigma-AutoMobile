@@ -183,7 +183,7 @@ const useFirebase = () => {
 
     // filtering admin 
     useEffect(() => {
-        fetch(`https://floating-tor-66173.herokuapp.com/${user.email}`)
+        fetch(`https://floating-tor-66173.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
